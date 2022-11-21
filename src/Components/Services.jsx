@@ -41,7 +41,7 @@ const Services = ({ scope, condition, defaultCondition }) => {
                     <AiOutlineInstagram  className='mx-1 text-2xl cursor-pointer' onClick={() => openLink("https://www.instagram.com/osbsnetwork/")}/> 
                     <RiTelegramLine  className='mx-1 text-2xl cursor-pointer' onClick={() => openLink("https://t.me/osbsnetwork")}/> 
                     <CiTwitter  className='mx-1 text-2xl cursor-pointer' onClick={() => openLink("https://twitter.com/osbsnetwork")}/> 
-                    <CgMail className='mx-1 text-2xl cursor-pointer' onClick={() => openLink("email- info@onestopblockshop.io")} />
+                    <CgMail className='mx-1 text-2xl cursor-pointer' onClick={() => openLink("mailto:info@onestopblockshop.io?subject=Subject&body=Body%20goes%20here")} />
                 </p>
             </div>
         </div>
