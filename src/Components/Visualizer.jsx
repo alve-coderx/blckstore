@@ -6,7 +6,7 @@ const Visualizer = () => {
       <div className='text-right text-white'>
         <p>TOTAL SUPPLY </p>
         <p>STARTING PRICE </p>
-        <p>Price increase per Nft sold </p>
+        <p>Price increase per NFT sold </p>
         <p>MAX MINT </p>
         <p> Price for 500th NFT </p>
       </div>

@@ -55,7 +55,7 @@ export default function Example() {
             }
             <div className="hidden lg:flex items-center lg:gap-x-8">
               {navigation.map((item) => (
-                <a key={item.name} href={item.href} className="font-semibold text-white hover:text-[#E8296F] hover:shadow-lg shadow-[#E8296F]">
+                <a key={item.name} onClick={() => window.open(item.href)} className="cursor-pointer font-semibold text-white hover:text-[#E8296F] hover:shadow-lg shadow-[#E8296F]">
                   {item.name}
                 </a>
               ))}

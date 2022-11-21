@@ -5,6 +5,7 @@ import Title from './Components/Title';
 import Visualizer from './Components/Visualizer';
 import { Web3ReactProvider } from '@web3-react/core'
 import { Web3Provider } from "@ethersproject/providers"
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   function getLibrary(provider) {
@@ -12,6 +13,7 @@ function App() {
   }
 
   return (
+    <BrowserRouter>
     <Web3ReactProvider getLibrary={getLibrary}>
       <div className="App">
         <Navbar />
@@ -28,6 +30,7 @@ function App() {
         </div>
       </div>
     </Web3ReactProvider>
+    </BrowserRouter>
   );
 }
 
