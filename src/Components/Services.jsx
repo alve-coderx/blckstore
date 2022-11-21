@@ -35,7 +35,7 @@ const Services = ({ scope, condition, defaultCondition }) => {
 
             </div>
             <div className='my-5 flex flex-col lg:items-start items-center'>
-                <button className='text-[#E8296F] border-[3px] border-[#E8296F] rounded-lg px-4 py-2 lg:mr-4'>Contact us</button>
+                <button onClick={() => window.open('https://t.me/loanwolf21?fbclid=IwAR3HyORw7jAioxoOjLZL0rQBBvbUc7OZrcjejHeNdP592Az6TvQKrtVH23A')} className='text-[#E8296F] border-[3px] border-[#E8296F] rounded-lg px-4 py-2 lg:mr-4'>Contact us</button>
                 <p className='text-white flex my-4'>
                     <AiOutlineYoutube  className='mx-1 text-2xl cursor-pointer' onClick={() => openLink("https://www.youtube.com/@onestopblockshop9164")}/> 
                     <AiOutlineInstagram  className='mx-1 text-2xl cursor-pointer' onClick={() => openLink("https://www.instagram.com/osbsnetwork/")}/> 

@@ -2,37 +2,20 @@ import logo from '../assets/logo.png'
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { AiOutlineMenu, AiFillCloseCircle } from 'react-icons/ai'
-import { WalletLinkConnector } from "@web3-react/walletlink-connector";
-import { WalletConnectConnector } from "@web3-react/walletconnect-connector";
 import { InjectedConnector } from "@web3-react/injected-connector";
 import { useWeb3React } from '@web3-react/core'
+import { NavLink } from 'react-router-dom';
 
-const CoinbaseWallet = new WalletLinkConnector({
- url: `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`,
- appName: "Web3-react Demo",
- supportedChainIds: [1, 3, 4, 5, 42],
-});
-
-const WalletConnect = new WalletConnectConnector({
- rpcUrl: `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`,
- bridge: "https://bridge.walletconnect.org",
- qrcode: true,
-});
 
 const Injected = new InjectedConnector({
- supportedChainIds: [1, 3, 4, 5, 42]
+  supportedChainIds: [1, 3, 4, 5, 42]
 });
-const navigation = [
-  { name: 'Home', href: '#' },
-  { name: 'Chart', href: 'https://www.dextools.io/app/en/bnb/pair-explorer/0xfd92ab31b95dc644dc63ca7268f951531058e0f4' },
-  { name: 'Staking', href: '#' },
-  { name: 'Whitepaper', href: '#' },
-]
 
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const { activate, deactivate } = useWeb3React();
- 
+  const { activate, deactivate, account } = useWeb3React();
+  // const {acc} = 
+  console.log(account)
   return (
     <div className="bg-transparent">
       <div className="pt-6 px-5 lg:px-56">
@@ -43,24 +26,35 @@ export default function Example() {
             </div>
             {
               !mobileMenuOpen && <div className="flex lg:hidden">
-              <button
-                type="button"
-                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-                onClick={() => setMobileMenuOpen(true)}
-              >
-                <span className="sr-only">Open main menu</span>
-                <AiOutlineMenu className='text-white' />
-              </button>
-            </div>
+                <button
+                  type="button"
+                  className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+                  onClick={() => setMobileMenuOpen(true)}
+                >
+                  <span className="sr-only">Open main menu</span>
+                  <AiOutlineMenu className='text-white' />
+                </button>
+              </div>
             }
             <div className="hidden lg:flex items-center lg:gap-x-8">
-              {navigation.map((item) => (
-                <a key={item.name} onClick={() => window.open(item.href)} className="cursor-pointer font-semibold text-white hover:text-[#E8296F] hover:shadow-lg shadow-[#E8296F]">
-                  {item.name}
-                </a>
-              ))}
-              
-              <button onClick={() => activate(Injected)} className='text-white border-[#E8296F] border-[3px] px-4 py-2 rounded-lg'>connect wallet</button>
+              <NavLink to='/' className="cursor-pointer font-semibold text-white hover:text-[#E8296F] hover:shadow-lg shadow-[#E8296F]">
+                Home
+              </NavLink>
+              <p onClick={() => window.open("https://www.dextools.io/app/en/bnb/pair-explorer/0xfd92ab31b95dc644dc63ca7268f951531058e0f4")} className="cursor-pointer font-semibold text-white hover:text-[#E8296F] hover:shadow-lg shadow-[#E8296F]">
+                Chart
+              </p>
+              <NavLink to='/' className="cursor-pointer font-semibold text-white hover:text-[#E8296F] hover:shadow-lg shadow-[#E8296F]">
+                Staking
+              </NavLink>
+              <p onClick={() => window.open("https://docs.onestopblockshop.io/osbs-whitepaper")} className="cursor-pointer font-semibold text-white hover:text-[#E8296F] hover:shadow-lg shadow-[#E8296F]">
+                Whitepaper
+              </p>
+
+              {
+                account ? <button onClick={() => deactivate()} className='text-white border-[#E8296F] border-[3px] px-4 py-2 rounded-lg'>disconnect wallet</button>
+                  :
+                  <button onClick={() => activate(Injected)} className='text-white border-[#E8296F] border-[3px] px-4 py-2 rounded-lg'>connect wallet</button>
+              }
             </div>
           </nav>
           <Dialog as="div" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
@@ -85,15 +79,18 @@ export default function Example() {
               <div className="mt-6 p-5 flow-root glass rounded-lg">
                 <div className="-my-6 divide-y divide-gray-500/10">
                   <div className="space-y-2 py-6">
-                    {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-white hover:bg-gray-400/10"
-                      >
-                        {item.name}
-                      </a>
-                    ))}
+                    <NavLink to='/' className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-white hover:bg-gray-400/10">
+                      Home
+                    </NavLink>
+                    <p onClick={() => window.open("https://www.dextools.io/app/en/bnb/pair-explorer/0xfd92ab31b95dc644dc63ca7268f951531058e0f4")} className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-white hover:bg-gray-400/10">
+                      Chart
+                    </p>
+                    <NavLink to='/' className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-white hover:bg-gray-400/10">
+                      Staking
+                    </NavLink>
+                    <p onClick={() => window.open("https://docs.onestopblockshop.io/osbs-whitepaper")} className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-white hover:bg-gray-400/10">
+                      Whitepaper
+                    </p>
                     <button className='text-white border-[#E8296F] border-[3px] px-4 py-2 rounded-lg'>connect wallet</button>
                   </div>
                 </div>

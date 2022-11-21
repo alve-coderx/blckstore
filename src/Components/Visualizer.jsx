@@ -15,7 +15,7 @@ const Visualizer = () => {
         <p>10 $OSBS </p>
         <p>5 $OSBS </p>
         <p>1 PER WALLET</p>
-        <p> 0 $OSBS</p>
+        <p> 2505 $OSBS</p>
       </div>
     </div>
   )
