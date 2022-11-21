@@ -6,16 +6,16 @@ const Visualizer = () => {
       <div className='text-right text-white'>
         <p>TOTAL SUPPLY </p>
         <p>STARTING PRICE </p>
-        <p>Price increase per nft sold </p>
+        <p>Price increase per Nft sold </p>
         <p>MAX MINT </p>
         <p> Price for 500th NFT </p>
       </div>
-      <div className='text-left ml-4 text-[#E8296F]'>
+      <div className='text-left font-[700] ml-4 text-[#E8296F]'>
         <p>500 NFTs</p>
         <p>10 $OSBS </p>
         <p>5 $OSBS </p>
         <p>1 PER WALLET</p>
-        <p> 2505 $OSBS</p>
+        <p> 0 $OSBS</p>
       </div>
     </div>
   )
