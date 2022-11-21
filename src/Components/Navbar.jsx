@@ -24,7 +24,7 @@ const Injected = new InjectedConnector({
 });
 const navigation = [
   { name: 'Home', href: '#' },
-  { name: 'Chart', href: '#' },
+  { name: 'Chart', href: 'https://www.dextools.io/app/en/bnb/pair-explorer/0xfd92ab31b95dc644dc63ca7268f951531058e0f4' },
   { name: 'Staking', href: '#' },
   { name: 'Whitepaper', href: '#' },
 ]
@@ -55,7 +55,7 @@ export default function Example() {
             }
             <div className="hidden lg:flex items-center lg:gap-x-8">
               {navigation.map((item) => (
-                <a key={item.name} href={item.href} className="font-semibold text-white hover:text-gray-900">
+                <a key={item.name} href={item.href} className="font-semibold text-white hover:text-[#E8296F] hover:shadow-lg shadow-[#E8296F]">
                   {item.name}
                 </a>
               ))}
